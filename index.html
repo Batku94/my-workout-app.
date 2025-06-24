@@ -9,7 +9,7 @@
     <link rel="apple-touch-icon" href="icon.png">
     <link rel="manifest" href="manifest.json">
 
-    <title>ჩემი სავარჯიშო გეგმა</title>
+    <title>8 კვირიანი პროგრამა</title>
     
     <!-- Tailwind CSS სტილებისთვის -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,10 +22,12 @@
             -moz-osx-font-smoothing: grayscale;
         }
         .workout-card {
-            transition: transform 0.2s ease-in-out;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
         .workout-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
         }
     </style>
 </head>
@@ -33,78 +35,71 @@
 
     <!-- Header -->
     <header class="bg-gray-900 shadow-lg p-6">
-        <h1 class="text-3xl font-bold text-center text-emerald-400">ჩემი სავარჯიშო გეგმა</h1>
-        <p class="text-center text-gray-400 mt-2">შენი ყოველდღიური მოტივაცია</p>
+        <h1 class="text-3xl font-bold text-center text-emerald-400">8 კვირიანი პროგრამა ცხიმის დასაწვავად</h1>
+        <p class="text-center text-gray-400 mt-2">დამწყებთათვის</p>
     </header>
 
     <!-- სავარჯიშოების სია -->
     <main class="p-4 sm:p-6 md:p-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
 
-            <!-- დღე 1 -->
-            <div class="bg-gray-700 rounded-xl shadow-md p-6 workout-card">
-                <h2 class="text-2xl font-semibold border-b-2 border-emerald-500 pb-2 mb-4">დღე 1: მკერდი და ტრიცეფსი</h2>
+            <!-- ვარჯიში #1 -->
+            <div class="bg-gray-700 rounded-xl p-6 workout-card">
+                <h2 class="text-2xl font-semibold border-b-2 border-emerald-500 pb-2 mb-4">ვარჯიში 1: ტანის ზედა ნაწილი (A)</h2>
                 <ul class="space-y-3 list-disc list-inside text-gray-300">
-                    <li><span class="font-bold">ჰორიზონტალური ჟიმი:</span> 4 სეტი x 8-10 გამეორება</li>
-                    <li><span class="font-bold">დახრილი ჟიმი განტელებით:</span> 3 სეტი x 12 გამეორება</li>
-                    <li><span class="font-bold">აზიდვები:</span> 3 სეტი x მაქსიმალური გამეორება</li>
-                    <li><span class="font-bold">ფრანგული ჟიმი:</span> 3 სეტი x 12 გამეორება</li>
-                    <li><span class="font-bold">ტრიცეფსის ტრენაჟორი:</span> 3 სეტი x 15 გამეორება</li>
+                    <li><span class="font-bold">პულოვერი განტელებით:</span> 2 სეტი x 10 გამეორება</li>
+                    <li><span class="font-bold">ჟიმი განტელებით:</span> 2 სეტი x 10 გამეორება</li>
+                    <li><span class="font-bold">არნოლდის ჟიმი:</span> 2 სეტი x 10 გამეორება</li>
+                    <li><span class="font-bold">ბიცეფსი განტელებით:</span> 2 სეტი x 10 გამეორება</li>
+                    <li><span class="font-bold">ტრიცეფსი თავზე გადატანით:</span> 2 სეტი x 10 გამეორება</li>
+                    <li><span class="font-bold">ფეხების აწევა (მწოლიარე):</span> 2 სეტი x 10 გამეორება</li>
                 </ul>
             </div>
 
-            <!-- დღე 2 -->
-            <div class="bg-gray-700 rounded-xl shadow-md p-6 workout-card">
-                <h2 class="text-2xl font-semibold border-b-2 border-emerald-500 pb-2 mb-4">დღე 2: ზურგი და ბიცეფსი</h2>
+            <!-- ვარჯიში #2 -->
+            <div class="bg-gray-700 rounded-xl p-6 workout-card">
+                <h2 class="text-2xl font-semibold border-b-2 border-emerald-500 pb-2 mb-4">ვარჯიში 2: ტანის ქვედა ნაწილი (A)</h2>
                 <ul class="space-y-3 list-disc list-inside text-gray-300">
-                    <li><span class="font-bold">ამოწევა (Deadlift):</span> 4 სეტი x 6-8 გამეორება</li>
-                    <li><span class="font-bold">ტურნიკზე აწევა:</span> 3 სეტი x მაქსიმალური გამეორება</li>
-                    <li><span class="font-bold">T-ღერძის ამოწევა:</span> 3 სეტი x 10 გამეორება</li>
-                    <li><span class="font-bold">ბიცეფსი შტანგით:</span> 3 სეტი x 12 გამეორება</li>
-                    <li><span class="font-bold">ჰამერი:</span> 3 სეტი x 12 გამეორება</li>
+                    <li><span class="font-bold">გობლეტ ჩაჯდომა:</span> 2 სეტი x 10 გამეორება</li>
+                    <li><span class="font-bold">თეძოს ამოწევა:</span> 2 სეტი x 10 გამეორება</li>
+                    <li><span class="font-bold">სიარულით ჩაჯდომები:</span> 2 სეტი x 10 (თითო ფეხზე)</li>
+                    <li><span class="font-bold">სწორი ფეხებით ამოწევა:</span> 2 სეტი x 10 გამეორება</li>
+                    <li><span class="font-bold">კალფები (ფეხზე დგომით):</span> 2 სეტი x 10 გამეორება</li>
+                    <li><span class="font-bold">პრესი გვერდებზე:</span> 2 სეტი x 10 (თითო მხარეს)</li>
                 </ul>
             </div>
 
-            <!-- დღე 3: დასვენება -->
-            <div class="bg-gray-700 rounded-xl shadow-md p-6 workout-card">
-                <h2 class="text-2xl font-semibold border-b-2 border-yellow-500 pb-2 mb-4">დღე 3: აქტიური დასვენება</h2>
-                <p class="text-gray-300">მსუბუქი კარდიო, გაწელვები ან 30-40 წუთიანი სეირნობა.</p>
-            </div>
-
-            <!-- დღე 4 -->
-            <div class="bg-gray-700 rounded-xl shadow-md p-6 workout-card">
-                <h2 class="text-2xl font-semibold border-b-2 border-emerald-500 pb-2 mb-4">დღე 4: ფეხები</h2>
+            <!-- ვარჯიში #3 -->
+            <div class="bg-gray-700 rounded-xl p-6 workout-card">
+                <h2 class="text-2xl font-semibold border-b-2 border-emerald-500 pb-2 mb-4">ვარჯიში 3: ტანის ზედა ნაწილი (B)</h2>
                 <ul class="space-y-3 list-disc list-inside text-gray-300">
-                    <li><span class="font-bold">ჩაჯდომები შტანგით:</span> 4 სეტი x 10 გამეორება</li>
-                    <li><span class="font-bold">ფეხების გაშლა ტრენაჟორზე:</span> 3 სეტი x 15 გამეორება</li>
-                    <li><span class="font-bold">ფეხების მოხრა ტრენაჟორზე:</span> 3 სეტი x 15 გამეორება</li>
-                    <li><span class="font-bold">კალფები (Calf Raises):</span> 4 სეტი x 20 გამეორება</li>
+                    <li><span class="font-bold">ამოწევა განტელებით (მოხრილი):</span> 2 სეტი x 20 გამეორება</li>
+                    <li><span class="font-bold">დახრილი ჟიმი განტელებით:</span> 2 სეტი x 20 გამეორება</li>
+                    <li><span class="font-bold">განტელების გაშლა (მოხრილი):</span> 2 სეტი x 20 გამეორება</li>
+                    <li><span class="font-bold">ბიცეფსი ტრენაჟორზე:</span> 2 სეტი x 20 გამეორება</li>
+                    <li><span class="font-bold">ტრიცეფსი სწორი ღერძით:</span> 2 სეტი x 20 გამეორება</li>
+                    <li><span class="font-bold">პლანკა:</span> 2 სეტი x 30 წამი</li>
                 </ul>
             </div>
 
-            <!-- დღე 5 -->
-            <div class="bg-gray-700 rounded-xl shadow-md p-6 workout-card">
-                <h2 class="text-2xl font-semibold border-b-2 border-emerald-500 pb-2 mb-4">დღე 5: მხრები და პრესი</h2>
+            <!-- ვარჯიში #4 -->
+            <div class="bg-gray-700 rounded-xl p-6 workout-card">
+                <h2 class="text-2xl font-semibold border-b-2 border-emerald-500 pb-2 mb-4">ვარჯიში 4: ტანის ქვედა ნაწილი (B)</h2>
                 <ul class="space-y-3 list-disc list-inside text-gray-300">
-                    <li><span class="font-bold">არმიული ჟიმი:</span> 4 სეტი x 10 გამეორება</li>
-                    <li><span class="font-bold">განტელების აწევა გვერდზე:</span> 3 სეტი x 15 გამეორება</li>
-                    <li><span class="font-bold">სახის ამოწევა (Face Pulls):</span> 3 სეტი x 15 გამეორება</li>
-                    <li><span class="font-bold">პლანკა:</span> 3 სეტი x 1 წუთი</li>
-                    <li><span class="font-bold">ფეხების აწევა ძელზე:</span> 3 სეტი x 15 გამეორება</li>
+                    <li><span class="font-bold">ჩაჯდომები ახტომით:</span> 2 სეტი x 20 გამეორება</li>
+                    <li><span class="font-bold">ფეხის უკან აქნევა (დუნდულა):</span> 2 სეტი x 20 (თითო ფეხზე)</li>
+                    <li><span class="font-bold">ფეხის მოხრა ტრენაჟორზე:</span> 2 სეტი x 20 გამეორება</li>
+                    <li><span class="font-bold">ფეხის გაშლა ტრენაჟორზე:</span> 2 სეტი x 20 გამეორება</li>
+                    <li><span class="font-bold">კალფები (მჯდომარე):</span> 2 სეტი x 20 გამეორება</li>
+                    <li><span class="font-bold">პრესი (Sit-Up):</span> 2 სეტი x 20 გამეორება</li>
                 </ul>
-            </div>
-
-            <!-- დღე 6 & 7: დასვენება -->
-            <div class="bg-gray-700 rounded-xl shadow-md p-6 workout-card">
-                 <h2 class="text-2xl font-semibold border-b-2 border-yellow-500 pb-2 mb-4">დღე 6 & 7: დასვენება</h2>
-                <p class="text-gray-300">სრული დასვენება და აღდგენა. მოემზადე ახალი კვირისთვის!</p>
             </div>
 
         </div>
     </main>
     
     <footer class="text-center p-6 text-gray-500 text-sm">
-        <p>შექმნილია შენი მიზნებისთვის</p>
+        <p>შექმნილია Muscle & Strength-ის მიხედვით</p>
     </footer>
 
     <script>
