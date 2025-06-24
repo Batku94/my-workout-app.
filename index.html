@@ -25,12 +25,22 @@
         .page-section {
             display: none;
         }
+        /* ვიდეოს მოდალის სტილები */
+        #video-modal {
+            transition: opacity 0.3s ease;
+        }
+        .exercise-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 0;
+        }
     </style>
 </head>
 <body class="bg-gray-800 text-white">
 
     <!-- Header -->
-    <header class="bg-gray-900 shadow-lg p-6">
+    <header class="bg-gray-900 shadow-lg p-6 sticky top-0 z-10">
         <h1 id="header-title" class="text-3xl font-bold text-center text-emerald-400">აირჩიე სექცია</h1>
     </header>
 
@@ -88,76 +98,81 @@
                 <!-- ვარჯიში #1 -->
                 <div class="bg-gray-700 rounded-xl p-6">
                     <h2 class="text-2xl font-semibold border-b-2 border-emerald-500 pb-2 mb-4">ვარჯიში 1: ტანის ზედა ნაწილი (A)</h2>
-                    <ul class="space-y-3 list-disc list-inside text-gray-300">
-                        <li><span class="font-bold">პულოვერი განტელებით:</span> 2 სეტი x 10 გამეორება</li>
-                        <li><span class="font-bold">ჟიმი განტელებით:</span> 2 სეტი x 10 გამეორება</li>
-                        <li><span class="font-bold">არნოლდის ჟიმი:</span> 2 სეტი x 10 გამეორება</li>
-                        <li><span class="font-bold">ბიცეფსი განტელებით:</span> 2 სეტი x 10 გამეორება</li>
-                        <li><span class="font-bold">ტრიცეფსი თავზე გადატანით:</span> 2 სეტი x 10 გამეორება</li>
-                        <li><span class="font-bold">ფეხების აწევა (მწოლიარე):</span> 2 სეტი x 10 გამეორება</li>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="exercise-item"><span><span class="font-bold">პულოვერი განტელებით:</span> 2x10</span> <button onclick="openModal('FK4-1YlO38A')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">ჟიმი განტელებით:</span> 2x10</span> <button onclick="openModal('Vc4BA7b41aI')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">არნოლდის ჟიმი:</span> 2x10</span> <button onclick="openModal('6Z15_WdX_90')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">ბიცეფსი განტელებით:</span> 2x10</span> <button onclick="openModal('ykJmrZ5v0Oo')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">ტრიცეფსი თავზე გადატანით:</span> 2x10</span> <button onclick="openModal('3aG1b_04O-c')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">ფეხების აწევა (მწოლიარე):</span> 2x10</span> <button onclick="openModal('dGKbTKLF_L8')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
                     </ul>
                 </div>
                 <!-- ვარჯიში #2 -->
-                <div class="bg-gray-700 rounded-xl p-6">
+                 <div class="bg-gray-700 rounded-xl p-6">
                     <h2 class="text-2xl font-semibold border-b-2 border-emerald-500 pb-2 mb-4">ვარჯიში 2: ტანის ქვედა ნაწილი (A)</h2>
-                    <ul class="space-y-3 list-disc list-inside text-gray-300">
-                        <li><span class="font-bold">გობლეტ ჩაჯდომა:</span> 2 სეტი x 10 გამეორება</li>
-                        <li><span class="font-bold">თეძოს ამოწევა:</span> 2 სეტი x 10 გამეორება</li>
-                        <li><span class="font-bold">სიარულით ჩაჯდომები:</span> 2 სეტი x 10 (თითო ფეხზე)</li>
-                        <li><span class="font-bold">სწორი ფეხებით ამოწევა:</span> 2 სეტი x 10 გამეორება</li>
-                        <li><span class="font-bold">კალფები (ფეხზე დგომით):</span> 2 სეტი x 10 გამეორება</li>
-                        <li><span class="font-bold">პრესი გვერდებზე:</span> 2 სეტი x 10 (თითო მხარეს)</li>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="exercise-item"><span><span class="font-bold">გობლეტ ჩაჯდომა:</span> 2x10</span> <button onclick="openModal('7p32_vI3L2A')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">თეძოს ამოწევა:</span> 2x10</span> <button onclick="openModal('xDmFkJxPzeM')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">სიარულით ჩაჯდომები:</span> 2x10 (თითო)</span> <button onclick="openModal('L8fvypoZc7I')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">სწორი ფეხებით ამოწევა:</span> 2x10</span> <button onclick="openModal('1u4idvAzA-g')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">კალფები (ფეხზე დგომით):</span> 2x10</span> <button onclick="openModal('d_0d5s3p-l0')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">პრესი გვერდებზე:</span> 2x10 (თითო)</span> <button onclick="openModal('w_wIq1gC2tE')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
                     </ul>
                 </div>
                 <!-- ვარჯიში #3 -->
                 <div class="bg-gray-700 rounded-xl p-6">
                     <h2 class="text-2xl font-semibold border-b-2 border-emerald-500 pb-2 mb-4">ვარჯიში 3: ტანის ზედა ნაწილი (B)</h2>
-                    <ul class="space-y-3 list-disc list-inside text-gray-300">
-                        <li><span class="font-bold">ამოწევა განტელებით (მოხრილი):</span> 2 სეტი x 20 გამეორება</li>
-                        <li><span class="font-bold">დახრილი ჟიმი განტელებით:</span> 2 სეტი x 20 გამეორება</li>
-                        <li><span class="font-bold">განტელების გაშლა (მოხრილი):</span> 2 სეტი x 20 გამეორება</li>
-                        <li><span class="font-bold">ბიცეფსი ტრენაჟორზე:</span> 2 სეტი x 20 გამეორება</li>
-                        <li><span class="font-bold">ტრიცეფსი სწორი ღერძით:</span> 2 სეტი x 20 გამეორება</li>
-                        <li><span class="font-bold">პლანკა:</span> 2 სეტი x 30 წამი</li>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="exercise-item"><span><span class="font-bold">ამოწევა განტელებით (მოხრილი):</span> 2x20</span> <button onclick="openModal('V232D10_2YY')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">დახრილი ჟიმი განტელებით:</span> 2x20</span> <button onclick="openModal('0G2_XV7slIg')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">განტელების გაშლა (მოხრილი):</span> 2x20</span> <button onclick="openModal('ttdYly_y_L8')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">ბიცეფსი ტრენაჟორზე:</span> 2x20</span> <button onclick="openModal('C3iA6d3I8gI')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">ტრიცეფსი სწორი ღერძით:</span> 2x20</span> <button onclick="openModal('n7xr4-41dJ4')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">პლანკა:</span> 2x30წმ</span> <button onclick="openModal('pDdk2rQO3dY')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
                     </ul>
                 </div>
                 <!-- ვარჯიში #4 -->
                 <div class="bg-gray-700 rounded-xl p-6">
                     <h2 class="text-2xl font-semibold border-b-2 border-emerald-500 pb-2 mb-4">ვარჯიში 4: ტანის ქვედა ნაწილი (B)</h2>
-                    <ul class="space-y-3 list-disc list-inside text-gray-300">
-                        <li><span class="font-bold">ჩაჯდომები ახტომით:</span> 2 სეტი x 20 გამეორება</li>
-                        <li><span class="font-bold">ფეხის უკან აქნევა (დუნდულა):</span> 2 სეტი x 20 (თითო ფეხზე)</li>
-                        <li><span class="font-bold">ფეხის მოხრა ტრენაჟორზე:</span> 2 სეტი x 20 გამეორება</li>
-                        <li><span class="font-bold">ფეხის გაშლა ტრენაჟორზე:</span> 2 სეტი x 20 გამეორება</li>
-                        <li><span class="font-bold">კალფები (მჯდომარე):</span> 2 სეტი x 20 გამეორება</li>
-                        <li><span class="font-bold">პრესი (Sit-Up):</span> 2 სეტი x 20 გამეორება</li>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="exercise-item"><span><span class="font-bold">ჩაჯდომები ახტომით:</span> 2x20</span> <button onclick="openModal('U4s4mEQ5VqU')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">ფეხის უკან აქნევა:</span> 2x20 (თითო)</span> <button onclick="openModal('VIe_12LaA9I')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">ფეხის მოხრა ტრენაჟორზე:</span> 2x20</span> <button onclick="openModal('F488k67BTlg')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">ფეხის გაშლა ტრენაჟორზე:</span> 2x20</span> <button onclick="openModal('YyvSfVjQeL0')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">კალფები (მჯდომარე):</span> 2x20</span> <button onclick="openModal('Jfl_gIat6G4')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
+                        <li class="exercise-item"><span><span class="font-bold">პრესი (Sit-Up):</span> 2x20</span> <button onclick="openModal('gXtgw7LTCkU')" class="p-1 rounded-full text-emerald-400 hover:bg-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></button></li>
                     </ul>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- ვიდეოს მოდალი -->
+    <div id="video-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+        <div class="bg-gray-900 p-2 rounded-lg shadow-xl w-full max-w-2xl relative">
+            <button onclick="closeModal()" class="absolute -top-3 -right-3 bg-white text-gray-800 rounded-full h-8 w-8 flex items-center justify-center font-bold text-xl z-20">&times;</button>
+            <div id="video-container" class="aspect-video w-full">
+                <!-- YouTube Iframe აქ ჩაისმება -->
+            </div>
+        </div>
+    </div>
     
     <script>
         const pages = document.querySelectorAll('.page-section');
         const headerTitle = document.getElementById('header-title');
         const backButton = document.getElementById('back-button');
+        const modal = document.getElementById('video-modal');
+        const videoContainer = document.getElementById('video-container');
 
         function showPage(pageId, title) {
-            // ყველა გვერდის დამალვა
             pages.forEach(page => {
                 page.style.display = 'none';
             });
-
-            // სასურველი გვერდის ჩვენება
             const targetPage = document.getElementById(pageId);
             if(targetPage) {
                 targetPage.style.display = 'block';
             }
-            
-            // სათაურის შეცვლა
             headerTitle.textContent = title;
-
-            // უკან ღილაკის ლოგიკა
             if(pageId === 'navigation-page') {
                 backButton.classList.add('hidden');
             } else {
@@ -165,7 +180,16 @@
             }
         }
 
-        // აპლიკაციის ჩატვირთვისას ვაჩვენებთ ნავიგაციის გვერდს
+        function openModal(videoId) {
+            videoContainer.innerHTML = `<iframe class="w-full h-full" src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            videoContainer.innerHTML = ''; // ვასუფთავებთ კონტეინერს, რომ ვიდეო გაჩერდეს
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             showPage('navigation-page', 'აირჩიე სექცია');
         });
