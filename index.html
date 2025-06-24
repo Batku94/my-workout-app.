@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- PWA-სთვის საჭირო ტეგები -->
+    <meta name="theme-color" content="#374151"/>
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="manifest" href="manifest.json">
+
+    <title>ჩემი სავარჯიშო გეგმა</title>
+    
+    <!-- Tailwind CSS სტილებისთვის -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* დამატებითი სტილები */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .workout-card {
+            transition: transform 0.2s ease-in-out;
+        }
+        .workout-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-gray-800 text-white">
+
+    <!-- Header -->
+    <header class="bg-gray-900 shadow-lg p-6">
+        <h1 class="text-3xl font-bold text-center text-emerald-400">ჩემი სავარჯიშო გეგმა</h1>
+        <p class="text-center text-gray-400 mt-2">შენი ყოველდღიური მოტივაცია</p>
+    </header>
+
+    <!-- სავარჯიშოების სია -->
+    <main class="p-4 sm:p-6 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- დღე 1 -->
+            <div class="bg-gray-700 rounded-xl shadow-md p-6 workout-card">
+                <h2 class="text-2xl font-semibold border-b-2 border-emerald-500 pb-2 mb-4">დღე 1: მკერდი და ტრიცეფსი</h2>
+                <ul class="space-y-3 list-disc list-inside text-gray-300">
+                    <li><span class="font-bold">ჰორიზონტალური ჟიმი:</span> 4 სეტი x 8-10 გამეორება</li>
+                    <li><span class="font-bold">დახრილი ჟიმი განტელებით:</span> 3 სეტი x 12 გამეორება</li>
+                    <li><span class="font-bold">აზიდვები:</span> 3 სეტი x მაქსიმალური გამეორება</li>
+                    <li><span class="font-bold">ფრანგული ჟიმი:</span> 3 სეტი x 12 გამეორება</li>
+                    <li><span class="font-bold">ტრიცეფსის ტრენაჟორი:</span> 3 სეტი x 15 გამეორება</li>
+                </ul>
+            </div>
+
+            <!-- დღე 2 -->
+            <div class="bg-gray-700 rounded-xl shadow-md p-6 workout-card">
+                <h2 class="text-2xl font-semibold border-b-2 border-emerald-500 pb-2 mb-4">დღე 2: ზურგი და ბიცეფსი</h2>
+                <ul class="space-y-3 list-disc list-inside text-gray-300">
+                    <li><span class="font-bold">ამოწევა (Deadlift):</span> 4 სეტი x 6-8 გამეორება</li>
+                    <li><span class="font-bold">ტურნიკზე აწევა:</span> 3 სეტი x მაქსიმალური გამეორება</li>
+                    <li><span class="font-bold">T-ღერძის ამოწევა:</span> 3 სეტი x 10 გამეორება</li>
+                    <li><span class="font-bold">ბიცეფსი შტანგით:</span> 3 სეტი x 12 გამეორება</li>
+                    <li><span class="font-bold">ჰამერი:</span> 3 სეტი x 12 გამეორება</li>
+                </ul>
+            </div>
+
+            <!-- დღე 3: დასვენება -->
+            <div class="bg-gray-700 rounded-xl shadow-md p-6 workout-card">
+                <h2 class="text-2xl font-semibold border-b-2 border-yellow-500 pb-2 mb-4">დღე 3: აქტიური დასვენება</h2>
+                <p class="text-gray-300">მსუბუქი კარდიო, გაწელვები ან 30-40 წუთიანი სეირნობა.</p>
+            </div>
+
+            <!-- დღე 4 -->
+            <div class="bg-gray-700 rounded-xl shadow-md p-6 workout-card">
+                <h2 class="text-2xl font-semibold border-b-2 border-emerald-500 pb-2 mb-4">დღე 4: ფეხები</h2>
+                <ul class="space-y-3 list-disc list-inside text-gray-300">
+                    <li><span class="font-bold">ჩაჯდომები შტანგით:</span> 4 სეტი x 10 გამეორება</li>
+                    <li><span class="font-bold">ფეხების გაშლა ტრენაჟორზე:</span> 3 სეტი x 15 გამეორება</li>
+                    <li><span class="font-bold">ფეხების მოხრა ტრენაჟორზე:</span> 3 სეტი x 15 გამეორება</li>
+                    <li><span class="font-bold">კალფები (Calf Raises):</span> 4 სეტი x 20 გამეორება</li>
+                </ul>
+            </div>
+
+            <!-- დღე 5 -->
+            <div class="bg-gray-700 rounded-xl shadow-md p-6 workout-card">
+                <h2 class="text-2xl font-semibold border-b-2 border-emerald-500 pb-2 mb-4">დღე 5: მხრები და პრესი</h2>
+                <ul class="space-y-3 list-disc list-inside text-gray-300">
+                    <li><span class="font-bold">არმიული ჟიმი:</span> 4 სეტი x 10 გამეორება</li>
+                    <li><span class="font-bold">განტელების აწევა გვერდზე:</span> 3 სეტი x 15 გამეორება</li>
+                    <li><span class="font-bold">სახის ამოწევა (Face Pulls):</span> 3 სეტი x 15 გამეორება</li>
+                    <li><span class="font-bold">პლანკა:</span> 3 სეტი x 1 წუთი</li>
+                    <li><span class="font-bold">ფეხების აწევა ძელზე:</span> 3 სეტი x 15 გამეორება</li>
+                </ul>
+            </div>
+
+            <!-- დღე 6 & 7: დასვენება -->
+            <div class="bg-gray-700 rounded-xl shadow-md p-6 workout-card">
+                 <h2 class="text-2xl font-semibold border-b-2 border-yellow-500 pb-2 mb-4">დღე 6 & 7: დასვენება</h2>
+                <p class="text-gray-300">სრული დასვენება და აღდგენა. მოემზადე ახალი კვირისთვის!</p>
+            </div>
+
+        </div>
+    </main>
+    
+    <footer class="text-center p-6 text-gray-500 text-sm">
+        <p>შექმნილია შენი მიზნებისთვის</p>
+    </footer>
+
+    <script>
+        // რეგისტრაცია Service Worker-ის, რომელიც Offline მუშაობას უზრუნველყოფს
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').then(registration => {
+                    console.log('SW registered: ', registration);
+                }).catch(registrationError => {
+                    console.log('SW registration failed: ', registrationError);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

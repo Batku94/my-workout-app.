@@ -1,0 +1,16 @@
+{
+    "name": "ჩემი ვარჯიშები",
+    "short_name": "ვარჯიში",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#1F2937",
+    "theme_color": "#374151",
+    "description": "ჩემი პერსონალური სავარჯიშო გეგმა.",
+    "icons": [
+      {
+        "src": "icon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
