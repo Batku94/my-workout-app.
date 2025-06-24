@@ -297,12 +297,13 @@
         
         function goBack() {
             if (pageHistory.length > 1) {
-                const currentPageId = pageHistory.pop();
+                pageHistory.pop();
                 const lastPageId = pageHistory[pageHistory.length - 1];
                 let title = 'აირჩიე სექცია'; // Default title
                 const lastPageButton = document.querySelector(`button[onclick*="'${lastPageId}'"]`);
                  if (lastPageButton) {
-                    title = lastPageButton.childNodes[0].nodeValue || "მენიუ";
+                    const titleSpan = lastPageButton.querySelector('span');
+                    title = `${lastPageButton.childNodes[0].nodeValue}: ${titleSpan.textContent}`;
                  }
                  showPage(lastPageId, title);
             }
@@ -461,36 +462,36 @@
                         {
                             title: 'ორშაბათი: ვარჯიში A (ზედა ტანი)',
                             exercises: [
-                                { id: 'w1a1', name: 'Lat Pulldown (ზემოდან მოზიდვა)', details: '3x10 | 60წმ', rest: 60, video: 'Yc1r9pGk5sE' },
-                                { id: 'w1a2', name: 'Dumbbell Bench Press (წოლჭიმი განტელებით)', details: '3x10 | 60წმ', rest: 60, video: 'BRrxLaSKfYU' },
-                                { id: 'w1a3', name: 'Seated Cable Row (ჰორიზონტალური ბლოკის მოზიდვა)', details: '3x10 | 60წმ', rest: 60, video: 'GZbfZ033f74' },
-                                { id: 'w1a4', name: 'Seated Dumbbell Shoulder Press (მხრებით აჭიმვა)', details: '3x12 | 60წმ', rest: 60, video: 'qEwKCR5JCog' },
-                                { id: 'w1a5', name: 'Dumbbell Bicep Curl (ბიცეფსი)', details: '2x12 | 45წმ', rest: 45, video: 'ykJmrZ5v0Oo' },
-                                { id: 'w1a6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x12 | 45წმ', rest: 45, video: '2-LAMcpzODo' }
+                                { id: 'w1a1', name: 'Lat Pulldown (ზემოდან მოზიდვა)', details: '3x10 | 60წმ', rest: 60, video: '51ql2-2kLfA' },
+                                { id: 'w1a2', name: 'Dumbbell Bench Press (წოლჭიმი განტელებით)', details: '3x10 | 60წმ', rest: 60, video: 'WbCEvFA0NJs' },
+                                { id: 'w1a3', name: 'Seated Cable Row (ჰორიზონტალური ბლოკის მოზიდვა)', details: '3x10 | 60წმ', rest: 60, video: 'qD1WZ5pSuvk' },
+                                { id: 'w1a4', name: 'Seated Dumbbell Shoulder Press (მხრებით აჭიმვა)', details: '3x12 | 60წმ', rest: 60, video: '6v4nrRVySj0' },
+                                { id: 'w1a5', name: 'Dumbbell Bicep Curl (ბიცეფსი)', details: '2x12 | 45წმ', rest: 45, video: 'MKWBV29S6c0' },
+                                { id: 'w1a6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x12 | 45წმ', rest: 45, video: 'rGI88vZdArg' }
                             ],
                             cooldown: '15 წუთი - Treadmill (სარბენი ბილიკი), სწრაფი სიარული (5.5-6.5 კმ/სთ), აღმართის გარეშე.'
                         },
                         {
                             title: 'ოთხშაბათი: ვარჯიში B (ქვედა ტანი)',
                             exercises: [
-                                { id: 'w1b1', name: 'Goblet Squat (თასისებრი ჩაჯდომა)', details: '3x10 | 90წმ', rest: 90, video: '7p32_vI3L2A' },
-                                { id: 'w1b2', name: 'Dumbbell Romanian Deadlift (რუმინული ამოწევა)', details: '3x12 | 60წმ', rest: 60, video: '_oyxCn2iSjU' },
-                                { id: 'w1b3', name: 'Bodyweight Lunges (გამოხტომები)', details: '3x10 (თითო) | 60წმ', rest: 60, video: 'L8fvypoZc7I' },
-                                { id: 'w1b4', name: 'Calf Raises (წვივებზე აწევა)', details: '3x15 | 45წმ', rest: 45, video: 'd_0d5s3p-l0' },
-                                { id: 'w1b5', name: 'Plank (პლანკა)', details: '3x30-45წმ | 60წმ', rest: 60, video: 'pDdk2rQO3dY' },
-                                { id: 'w1b6', name: 'Leg Raises (ფეხების აწევა)', details: '3x15 | 60წმ', rest: 60, video: 'r24ntO4IvKc' }
+                                { id: 'w1b1', name: 'Goblet Squat (თასისებრი ჩაჯდომა)', details: '3x10 | 90წმ', rest: 90, video: 'YuRik26Rd-M' },
+                                { id: 'w1b2', name: 'Lying Leg Curl (ფეხის მოხრა ტრენაჟორზე)', details: '3x12 | 60წმ', rest: 60, video: 'FMCq0hT3KRU' },
+                                { id: 'w1b3', name: 'Bodyweight Lunges (გამოხტომები)', details: '3x10 (თითო) | 60წმ', rest: 60, video: '1mHlkUC5rGY' },
+                                { id: 'w1b4', name: 'Calf Raises (წვივებზე აწევა)', details: '3x15 | 45წმ', rest: 45, video: '95itLfMBG40' },
+                                { id: 'w1b5', name: 'Plank (პლანკა)', details: '3x30-45წმ | 60წმ', rest: 60, video: 'v25dawSzRTM' },
+                                { id: 'w1b6', name: 'Leg Raises (ფეხების აწევა)', details: '3x15 | 60წმ', rest: 60, video: 'd3d2yz7V26c' }
                             ],
                              cooldown: '15 წუთი - Elliptical Trainer (ელიპტიკური), საშუალო წინააღმდეგობა.'
                         },
                          {
                             title: 'პარასკევი: ვარჯიში A (ზედა ტანი)',
                             exercises: [
-                                { id: 'w1c1', name: 'Lat Pulldown (ზემოდან მოზიდვა)', details: '3x10 | 60წმ', rest: 60, video: 'Yc1r9pGk5sE' },
-                                { id: 'w1c2', name: 'Dumbbell Bench Press (წოლჭიმი განტელებით)', details: '3x10 | 60წმ', rest: 60, video: 'BRrxLaSKfYU' },
-                                { id: 'w1c3', name: 'Seated Cable Row (ჰორიზონტალური ბლოკის მოზიდვა)', details: '3x10 | 60წმ', rest: 60, video: 'GZbfZ033f74' },
-                                { id: 'w1c4', name: 'Seated Dumbbell Shoulder Press (მხრებით აჭიმვა)', details: '3x12 | 60წმ', rest: 60, video: 'qEwKCR5JCog' },
-                                { id: 'w1c5', name: 'Dumbbell Bicep Curl (ბიცეფსი)', details: '2x12 | 45წმ', rest: 45, video: 'ykJmrZ5v0Oo' },
-                                { id: 'w1c6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x12 | 45წმ', rest: 45, video: '2-LAMcpzODo' }
+                                { id: 'w1c1', name: 'Lat Pulldown (ზემოდან მოზიდვა)', details: '3x10 | 60წმ', rest: 60, video: '51ql2-2kLfA' },
+                                { id: 'w1c2', name: 'Dumbbell Bench Press (წოლჭიმი განტელებით)', details: '3x10 | 60წმ', rest: 60, video: 'WbCEvFA0NJs' },
+                                { id: 'w1c3', name: 'Seated Cable Row (ჰორიზონტალური ბლოკის მოზიდვა)', details: '3x10 | 60წმ', rest: 60, video: 'qD1WZ5pSuvk' },
+                                { id: 'w1c4', name: 'Seated Dumbbell Shoulder Press (მხრებით აჭიმვა)', details: '3x12 | 60წმ', rest: 60, video: '6v4nrRVySj0' },
+                                { id: 'w1c5', name: 'Dumbbell Bicep Curl (ბიცეფსი)', details: '2x12 | 45წმ', rest: 45, video: 'MKWBV29S6c0' },
+                                { id: 'w1c6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x12 | 45წმ', rest: 45, video: 'rGI88vZdArg' }
                             ],
                              cooldown: '15 წუთი - Stationary Bike (ველოტრენაჟორი), სტაბილური, საშუალო ტემპი.'
                         }
@@ -503,36 +504,36 @@
                         {
                             title: 'ორშაბათი: ვარჯიში B (ქვედა ტანი)',
                             exercises: [
-                                { id: 'w2a1', name: 'Goblet Squat (თასისებრი ჩაჯდომა)', details: '3x12 | 90წმ', rest: 90, video: '7p32_vI3L2A' },
-                                { id: 'w2a2', name: 'Dumbbell Romanian Deadlift (რუმინული ამოწევა)', details: '3x15 | 60წმ', rest: 60, video: '_oyxCn2iSjU' },
-                                { id: 'w2a3', name: 'Bodyweight Lunges (გამოხტომები)', details: '3x12 (თითო) | 60წმ', rest: 60, video: 'L8fvypoZc7I' },
-                                { id: 'w2a4', name: 'Calf Raises (წვივებზე აწევა)', details: '3x20 | 45წმ', rest: 45, video: 'd_0d5s3p-l0' },
-                                { id: 'w2a5', name: 'Plank (პლანკა)', details: '3x45-60წმ | 60წმ', rest: 60, video: 'pDdk2rQO3dY' },
-                                { id: 'w2a6', name: 'Leg Raises (ფეხების აწევა)', details: '3x20 | 60წმ', rest: 60, video: 'r24ntO4IvKc' }
+                                { id: 'w2a1', name: 'Goblet Squat (თასისებრი ჩაჯდომა)', details: '3x12 | 90წმ', rest: 90, video: 'YuRik26Rd-M' },
+                                { id: 'w2a2', name: 'Lying Leg Curl (ფეხის მოხრა ტრენაჟორზე)', details: '3x15 | 60წმ', rest: 60, video: 'FMCq0hT3KRU' },
+                                { id: 'w2a3', name: 'Bodyweight Lunges (გამოხტომები)', details: '3x12 (თითო) | 60წმ', rest: 60, video: '1mHlkUC5rGY' },
+                                { id: 'w2a4', name: 'Calf Raises (წვივებზე აწევა)', details: '3x20 | 45წმ', rest: 45, video: '95itLfMBG40' },
+                                { id: 'w2a5', name: 'Plank (პლანკა)', details: '3x45-60წმ | 60წმ', rest: 60, video: 'v25dawSzRTM' },
+                                { id: 'w2a6', name: 'Leg Raises (ფეხების აწევა)', details: '3x20 | 60წმ', rest: 60, video: 'd3d2yz7V26c' }
                             ],
                             cooldown: '20 წუთი - Treadmill. 5წთ სწრაფი სიარული (6.0), 10წთ მცირე აღმართი (2-3%), 5წთ სწორი ზედაპირი.'
                         },
                         {
                             title: 'ოთხშაბათი: ვარჯიში A (ზედა ტანი)',
                             exercises: [
-                                { id: 'w2b1', name: 'Lat Pulldown (ზემოდან მოზიდვა)', details: '3x12 | 60წმ', rest: 60, video: 'Yc1r9pGk5sE' },
-                                { id: 'w2b2', name: 'Dumbbell Bench Press (წოლჭიმი განტელებით)', details: '3x12 | 60წმ', rest: 60, video: 'BRrxLaSKfYU' },
-                                { id: 'w2b3', name: 'Seated Cable Row (ჰორიზონტალური ბლოკის მოზიდვა)', details: '3x12 | 60წმ', rest: 60, video: 'GZbfZ033f74' },
-                                { id: 'w2b4', name: 'Seated Dumbbell Shoulder Press (მხრებით აჭიმვა)', details: '3x15 | 60წმ', rest: 60, video: 'qEwKCR5JCog' },
-                                { id: 'w2b5', name: 'Dumbbell Bicep Curl (ბიცეფსი)', details: '2x15 | 45წმ', rest: 45, video: 'ykJmrZ5v0Oo' },
-                                { id: 'w2b6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x15 | 45წმ', rest: 45, video: '2-LAMcpzODo' }
+                                { id: 'w2b1', name: 'Lat Pulldown (ზემოდან მოზიდვა)', details: '3x12 | 60წმ', rest: 60, video: '51ql2-2kLfA' },
+                                { id: 'w2b2', name: 'Dumbbell Bench Press (წოლჭიმი განტელებით)', details: '3x12 | 60წმ', rest: 60, video: 'WbCEvFA0NJs' },
+                                { id: 'w2b3', name: 'Seated Cable Row (ჰორიზონტალური ბლოკის მოზიდვა)', details: '3x12 | 60წმ', rest: 60, video: 'qD1WZ5pSuvk' },
+                                { id: 'w2b4', name: 'Seated Dumbbell Shoulder Press (მხრებით აჭიმვა)', details: '3x15 | 60წმ', rest: 60, video: '6v4nrRVySj0' },
+                                { id: 'w2b5', name: 'Dumbbell Bicep Curl (ბიცეფსი)', details: '2x15 | 45წმ', rest: 45, video: 'MKWBV29S6c0' },
+                                { id: 'w2b6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x15 | 45წმ', rest: 45, video: 'rGI88vZdArg' }
                             ],
                              cooldown: '20 წუთი - Elliptical Trainer, ოდნავ გაზრდილი წინააღმდეგობით.'
                         },
                          {
                             title: 'პარასკევი: ვარჯიში B (ქვედა ტანი)',
                             exercises: [
-                                { id: 'w2c1', name: 'Goblet Squat (თასისებრი ჩაჯდომა)', details: '3x12 | 90წმ', rest: 90, video: '7p32_vI3L2A' },
-                                { id: 'w2c2', name: 'Dumbbell Romanian Deadlift (რუმინული ამოწევა)', details: '3x15 | 60წმ', rest: 60, video: '_oyxCn2iSjU' },
-                                { id: 'w2c3', name: 'Bodyweight Lunges (გამოხტომები)', details: '3x12 (თითო) | 60წმ', rest: 60, video: 'L8fvypoZc7I' },
-                                { id: 'w2c4', name: 'Calf Raises (წვივებზე აწევა)', details: '3x20 | 45წმ', rest: 45, video: 'd_0d5s3p-l0' },
-                                { id: 'w2c5', name: 'Plank (პლანკა)', details: '3x45-60წმ | 60წმ', rest: 60, video: 'pDdk2rQO3dY' },
-                                { id: 'w2c6', name: 'Leg Raises (ფეხების აწევა)', details: '3x20 | 60წმ', rest: 60, video: 'r24ntO4IvKc' }
+                                { id: 'w2c1', name: 'Goblet Squat (თასისებრი ჩაჯდომა)', details: '3x12 | 90წმ', rest: 90, video: 'YuRik26Rd-M' },
+                                { id: 'w2c2', name: 'Lying Leg Curl (ფეხის მოხრა ტრენაჟორზე)', details: '3x15 | 60წმ', rest: 60, video: 'FMCq0hT3KRU' },
+                                { id: 'w2c3', name: 'Bodyweight Lunges (გამოხტომები)', details: '3x12 (თითო) | 60წმ', rest: 60, video: '1mHlkUC5rGY' },
+                                { id: 'w2c4', name: 'Calf Raises (წვივებზე აწევა)', details: '3x20 | 45წმ', rest: 45, video: '95itLfMBG40' },
+                                { id: 'w2c5', name: 'Plank (პლანკა)', details: '3x45-60წმ | 60წმ', rest: 60, video: 'v25dawSzRTM' },
+                                { id: 'w2c6', name: 'Leg Raises (ფეხების აწევა)', details: '3x20 | 60წმ', rest: 60, video: 'd3d2yz7V26c' }
                             ],
                              cooldown: '20 წუთი - Stationary Bike. 2წთ საშუალო ტემპი, 1წთ აჩქარებული. გაიმეორე 6-ჯერ.'
                         }
@@ -545,36 +546,36 @@
                         {
                             title: 'ორშაბათი: ვარჯიში A (ზედა ტანი)',
                             exercises: [
-                                { id: 'w3a1', name: 'Lat Pulldown (ზემოდან მოზიდვა)', details: '3x8-10 | 60წმ', rest: 60, video: 'Yc1r9pGk5sE' },
-                                { id: 'w3a2', name: 'Dumbbell Bench Press (წოლჭიმი განტელებით)', details: '3x8-10 | 60წმ', rest: 60, video: 'BRrxLaSKfYU' },
-                                { id: 'w3a3', name: 'Seated Cable Row (ჰორიზონტალური ბლოკის მოზიდვა)', details: '3x8-10 | 60წმ', rest: 60, video: 'GZbfZ033f74' },
-                                { id: 'w3a4', name: 'Seated Dumbbell Shoulder Press (მხრებით აჭიმვა)', details: '3x10-12 | 60წმ', rest: 60, video: 'qEwKCR5JCog' },
-                                { id: 'w3a5', name: 'Dumbbell Bicep Curl (ბიცეფსი)', details: '2x10-12 | 45წმ', rest: 45, video: 'ykJmrZ5v0Oo' },
-                                { id: 'w3a6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x10-12 | 45წმ', rest: 45, video: '2-LAMcpzODo' }
+                                { id: 'w3a1', name: 'Lat Pulldown (ზემოდან მოზიდვა)', details: '3x8-10 | 60წმ', rest: 60, video: '51ql2-2kLfA' },
+                                { id: 'w3a2', name: 'Dumbbell Bench Press (წოლჭიმი განტელებით)', details: '3x8-10 | 60წმ', rest: 60, video: 'WbCEvFA0NJs' },
+                                { id: 'w3a3', name: 'Seated Cable Row (ჰორიზონტალური ბლოკის მოზიდვა)', details: '3x8-10 | 60წმ', rest: 60, video: 'qD1WZ5pSuvk' },
+                                { id: 'w3a4', name: 'Seated Dumbbell Shoulder Press (მხრებით აჭიმვა)', details: '3x10-12 | 60წმ', rest: 60, video: '6v4nrRVySj0' },
+                                { id: 'w3a5', name: 'Dumbbell Bicep Curl (ბიცეფსი)', details: '2x10-12 | 45წმ', rest: 45, video: 'MKWBV29S6c0' },
+                                { id: 'w3a6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x10-12 | 45წმ', rest: 45, video: 'rGI88vZdArg' }
                             ],
                             cooldown: '20 წუთი - Elliptical Trainer, ოდნავ გაზრდილი წინააღმდეგობით.'
                         },
                         {
                             title: 'ოთხშაბათი: ვარჯიში B (ქვედა ტანი)',
                             exercises: [
-                                { id: 'w3b1', name: 'Goblet Squat (თასისებრი ჩაჯდომა)', details: '3x8-10 | 90წმ', rest: 90, video: '7p32_vI3L2A' },
-                                { id: 'w3b2', name: 'Dumbbell Romanian Deadlift (რუმინული ამოწევა)', details: '3x10-12 | 60წმ', rest: 60, video: '_oyxCn2iSjU' },
-                                { id: 'w3b3', name: 'Dumbbell Lunges (გამოხტომები განტელებით)', details: '3x8-10 (თითო) | 60წმ', rest: 60, video: 'L8fvypoZc7I' },
-                                { id: 'w3b4', name: 'Calf Raises (წვივებზე აწევა)', details: '3x15-20 | 45წმ', rest: 45, video: 'd_0d5s3p-l0' },
-                                { id: 'w3b5', name: 'Plank (პლანკა)', details: '3xMax დრო | 60წმ', rest: 60, video: 'pDdk2rQO3dY' },
-                                { id: 'w3b6', name: 'Leg Raises (ფეხების აწევა)', details: '3xMax გამეორება | 60წმ', rest: 60, video: 'r24ntO4IvKc' }
+                                { id: 'w3b1', name: 'Goblet Squat (თასისებრი ჩაჯდომა)', details: '3x8-10 | 90წმ', rest: 90, video: 'YuRik26Rd-M' },
+                                { id: 'w3b2', name: 'Lying Leg Curl (ფეხის მოხრა ტრენაჟორზე)', details: '3x10-12 | 60წმ', rest: 60, video: 'FMCq0hT3KRU' },
+                                { id: 'w3b3', name: 'Dumbbell Lunges (გამოხტომები განტელებით)', details: '3x8-10 (თითო) | 60წმ', rest: 60, video: '1mHlkUC5rGY' },
+                                { id: 'w3b4', name: 'Calf Raises (წვივებზე აწევა)', details: '3x15-20 | 45წმ', rest: 45, video: '95itLfMBG40' },
+                                { id: 'w3b5', name: 'Plank (პლანკა)', details: '3xMax დრო | 60წმ', rest: 60, video: 'v25dawSzRTM' },
+                                { id: 'w3b6', name: 'Leg Raises (ფეხების აწევა)', details: '3xMax გამეორება | 60წმ', rest: 60, video: 'd3d2yz7V26c' }
                             ],
                              cooldown: '20 წუთი - Treadmill. 5წთ სწრაფი სიარული (6.0), 10წთ მცირე აღმართი, 5წთ სწორი ზედაპირი.'
                         },
                          {
                             title: 'პარასკევი: ვარჯიში A (ზედა ტანი)',
                             exercises: [
-                                { id: 'w3c1', name: 'Lat Pulldown (ზემოდან მოზიდვა)', details: '3x8-10 | 60წმ', rest: 60, video: 'Yc1r9pGk5sE' },
-                                { id: 'w3c2', name: 'Dumbbell Bench Press (წოლჭიმი განტელებით)', details: '3x8-10 | 60წმ', rest: 60, video: 'BRrxLaSKfYU' },
-                                { id: 'w3c3', name: 'Seated Cable Row (ჰორიზონტალური ბლოკის მოზიდვა)', details: '3x8-10 | 60წმ', rest: 60, video: 'GZbfZ033f74' },
-                                { id: 'w3c4', name: 'Seated Dumbbell Shoulder Press (მხრებით აჭიმვა)', details: '3x10-12 | 60წმ', rest: 60, video: 'qEwKCR5JCog' },
-                                { id: 'w3c5', name: 'Dumbbell Bicep Curl (ბიცეფსი)', details: '2x10-12 | 45წმ', rest: 45, video: 'ykJmrZ5v0Oo' },
-                                { id: 'w3c6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x10-12 | 45წმ', rest: 45, video: '2-LAMcpzODo' }
+                                { id: 'w3c1', name: 'Lat Pulldown (ზემოდან მოზიდვა)', details: '3x8-10 | 60წმ', rest: 60, video: '51ql2-2kLfA' },
+                                { id: 'w3c2', name: 'Dumbbell Bench Press (წოლჭიმი განტელებით)', details: '3x8-10 | 60წმ', rest: 60, video: 'WbCEvFA0NJs' },
+                                { id: 'w3c3', name: 'Seated Cable Row (ჰორიზონტალური ბლოკის მოზიდვა)', details: '3x8-10 | 60წმ', rest: 60, video: 'qD1WZ5pSuvk' },
+                                { id: 'w3c4', name: 'Seated Dumbbell Shoulder Press (მხრებით აჭიმვა)', details: '3x10-12 | 60წმ', rest: 60, video: '6v4nrRVySj0' },
+                                { id: 'w3c5', name: 'Dumbbell Bicep Curl (ბიცეფსი)', details: '2x10-12 | 45წმ', rest: 45, video: 'MKWBV29S6c0' },
+                                { id: 'w3c6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x10-12 | 45წმ', rest: 45, video: 'rGI88vZdArg' }
                             ],
                              cooldown: '20 წუთი - Stationary Bike. 2წთ საშუალო ტემპი, 1წთ აჩქარებული. გაიმეორე 6-ჯერ.'
                         }
@@ -587,36 +588,36 @@
                         {
                             title: 'ორშაბათი: ვარჯიში B (ქვედა ტანი)',
                             exercises: [
-                                { id: 'w4a1', name: 'Goblet Squat (თასისებრი ჩაჯდომა)', details: '3x10-12 | 90წმ', rest: 90, video: '7p32_vI3L2A' },
-                                { id: 'w4a2', name: 'Dumbbell Romanian Deadlift (რუმინული ამოწევა)', details: '3x12-15 | 60წმ', rest: 60, video: '_oyxCn2iSjU' },
-                                { id: 'w4a3', name: 'Dumbbell Lunges (გამოხტომები განტელებით)', details: '3x10-12 (თითო) | 60წმ', rest: 60, video: 'L8fvypoZc7I' },
-                                { id: 'w4a4', name: 'Calf Raises (წვივებზე აწევა)', details: '3xMax გამეორება | 45წმ', rest: 45, video: 'd_0d5s3p-l0' },
-                                { id: 'w4a5', name: 'Plank (პლანკა)', details: '3xMax დრო | 60წმ', rest: 60, video: 'pDdk2rQO3dY' },
-                                { id: 'w4a6', name: 'Leg Raises (ფეხების აწევა)', details: '3xMax გამეორება | 60წმ', rest: 60, video: 'r24ntO4IvKc' }
+                                { id: 'w4a1', name: 'Goblet Squat (თასისებრი ჩაჯდომა)', details: '3x10-12 | 90წმ', rest: 90, video: 'YuRik26Rd-M' },
+                                { id: 'w4a2', name: 'Lying Leg Curl (ფეხის მოხრა ტრენაჟორზე)', details: '3x12-15 | 60წმ', rest: 60, video: 'FMCq0hT3KRU' },
+                                { id: 'w4a3', name: 'Dumbbell Lunges (გამოხტომები განტელებით)', details: '3x10-12 (თითო) | 60წმ', rest: 60, video: '1mHlkUC5rGY' },
+                                { id: 'w4a4', name: 'Calf Raises (წვივებზე აწევა)', details: '3xMax გამეორება | 45წმ', rest: 45, video: '95itLfMBG40' },
+                                { id: 'w4a5', name: 'Plank (პლანკა)', details: '3xMax დრო | 60წმ', rest: 60, video: 'v25dawSzRTM' },
+                                { id: 'w4a6', name: 'Leg Raises (ფეხების აწევა)', details: '3xMax გამეორება | 60წმ', rest: 60, video: 'd3d2yz7V26c' }
                             ],
                             cooldown: '25 წუთი - Treadmill. 5წთ სწრაფი სიარული, 15წთ მცირე აღმართი (2-4%), 5წთ სწორი ზედაპირი.'
                         },
                         {
                             title: 'ოთხშაბათი: ვარჯიში A (ზედა ტანი)',
                             exercises: [
-                                { id: 'w4b1', name: 'Lat Pulldown (ზემოდან მოზიდვა)', details: '3x10-12 | 60წმ', rest: 60, video: 'Yc1r9pGk5sE' },
-                                { id: 'w4b2', name: 'Dumbbell Bench Press (წოლჭიმი განტელებით)', details: '3x10-12 | 60წმ', rest: 60, video: 'BRrxLaSKfYU' },
-                                { id: 'w4b3', name: 'Seated Cable Row (ჰორიზონტალური ბლოკის მოზიდვა)', details: '3x10-12 | 60წმ', rest: 60, video: 'GZbfZ033f74' },
-                                { id: 'w4b4', name: 'Seated Dumbbell Shoulder Press (მხრებით აჭიმვა)', details: '3x12-15 | 60წმ', rest: 60, video: 'qEwKCR5JCog' },
-                                { id: 'w4b5', name: 'Dumbbell Bicep Curl (ბიცეფსი)', details: '2x12-15 | 45წმ', rest: 45, video: 'ykJmrZ5v0Oo' },
-                                { id: 'w4b6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x12-15 | 45წმ', rest: 45, video: '2-LAMcpzODo' }
+                                { id: 'w4b1', name: 'Lat Pulldown (ზემოდან მოზიდვა)', details: '3x10-12 | 60წმ', rest: 60, video: '51ql2-2kLfA' },
+                                { id: 'w4b2', name: 'Dumbbell Bench Press (წოლჭიმი განტელებით)', details: '3x10-12 | 60წმ', rest: 60, video: 'WbCEvFA0NJs' },
+                                { id: 'w4b3', name: 'Seated Cable Row (ჰორიზონტალური ბლოკის მოზიდვა)', details: '3x10-12 | 60წმ', rest: 60, video: 'qD1WZ5pSuvk' },
+                                { id: 'w4b4', name: 'Seated Dumbbell Shoulder Press (მხრებით აჭიმვა)', details: '3x12-15 | 60წმ', rest: 60, video: '6v4nrRVySj0' },
+                                { id: 'w4b5', name: 'Dumbbell Bicep Curl (ბიცეფსი)', details: '2x12-15 | 45წმ', rest: 45, video: 'MKWBV29S6c0' },
+                                { id: 'w4b6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x12-15 | 45წმ', rest: 45, video: 'rGI88vZdArg' }
                             ],
                              cooldown: '25 წუთი - Elliptical Trainer, გაზარდე წინააღმდეგობა ისე, რომ ბოლო 5 წუთი გამოწვევა იყოს.'
                         },
                          {
                             title: 'პარასკევი: ვარჯიში B (ქვედა ტანი)',
                             exercises: [
-                                { id: 'w4c1', name: 'Goblet Squat (თასისებრი ჩაჯდომა)', details: '3x10-12 | 90წმ', rest: 90, video: '7p32_vI3L2A' },
-                                { id: 'w4c2', name: 'Dumbbell Romanian Deadlift (რუმინული ამოწევა)', details: '3x12-15 | 60წმ', rest: 60, video: '_oyxCn2iSjU' },
-                                { id: 'w4c3', name: 'Dumbbell Lunges (გამოხტომები განტელებით)', details: '3x10-12 (თითო) | 60წმ', rest: 60, video: 'L8fvypoZc7I' },
-                                { id: 'w4c4', name: 'Calf Raises (წვივებზე აწევა)', details: '3xMax გამეორება | 45წმ', rest: 45, video: 'd_0d5s3p-l0' },
-                                { id: 'w4c5', name: 'Plank (პლანკა)', details: '3xMax დრო | 60წმ', rest: 60, video: 'pDdk2rQO3dY' },
-                                { id: 'w4c6', name: 'Leg Raises (ფეხების აწევა)', details: '3xMax გამეორება | 60წმ', rest: 60, video: 'r24ntO4IvKc' }
+                                { id: 'w4c1', name: 'Goblet Squat (თასისებრი ჩაჯდომა)', details: '3x10-12 | 90წმ', rest: 90, video: 'YuRik26Rd-M' },
+                                { id: 'w4c2', name: 'Lying Leg Curl (ფეხის მოხრა ტრენაჟორზე)', details: '3x12-15 | 60წმ', rest: 60, video: 'FMCq0hT3KRU' },
+                                { id: 'w4c3', name: 'Dumbbell Lunges (გამოხტომები განტელებით)', details: '3x10-12 (თითო) | 60წმ', rest: 60, video: '1mHlkUC5rGY' },
+                                { id: 'w4c4', name: 'Calf Raises (წვივებზე აწევა)', details: '3xMax გამეორება | 45წმ', rest: 45, video: '95itLfMBG40' },
+                                { id: 'w4c5', name: 'Plank (პლანკა)', details: '3xMax დრო | 60წმ', rest: 60, video: 'v25dawSzRTM' },
+                                { id: 'w4c6', name: 'Leg Raises (ფეხების აწევა)', details: '3xMax გამეორება | 60წმ', rest: 60, video: 'd3d2yz7V26c' }
                             ],
                              cooldown: '25 წუთი - Stationary Bike. 2წთ საშუალო ტემპი, 1წთ აჩქარებული. გაიმეორე 8-ჯერ.'
                         }
