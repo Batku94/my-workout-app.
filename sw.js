@@ -1,4 +1,4 @@
-const CACHE_NAME = 'workout-app-cache-v6'; // ვერსია განახლებულია!
+const CACHE_NAME = 'workout-app-cache-v7'; // ვერსია განახლებულია!
 const urlsToCache = [
   '/',
   '/index.html'
