@@ -1,4 +1,4 @@
-const CACHE_NAME = 'workout-app-cache-v2'; // <--- ვერსია შევცვალეთ
+const CACHE_NAME = 'workout-app-cache-v3'; // ვერსია განახლებულია!
 const urlsToCache = [
   '/',
   '/index.html'
@@ -26,7 +26,7 @@ self.addEventListener('fetch', event => {
   );
 });
 
-// ეს კოდი წაშლის ძველ ქეშს
+// ეს კოდი ავტომატურად შლის ძველ ქეშს (ძველ ვერსიებს)
 self.addEventListener('activate', event => {
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
