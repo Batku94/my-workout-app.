@@ -69,6 +69,32 @@
             transform-origin: 50% 50%;
             transition: stroke-dashoffset 1s linear;
         }
+        /* Table styles */
+        .styled-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            width: 100%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+        .styled-table thead tr {
+            background-color: #059669; /* emerald-600 */
+            color: #ffffff;
+            text-align: left;
+        }
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+        }
+        .styled-table tbody tr {
+            border-bottom: 1px solid #4b5563; /* gray-600 */
+        }
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: #374151; /* gray-700 */
+        }
+        .styled-table tbody tr:last-of-type {
+            border-bottom: 2px solid #059669; /* emerald-600 */
+        }
     </style>
 </head>
 <body class="bg-gray-800 text-white">
@@ -85,7 +111,7 @@
                 <button onclick="showPage('workouts-main-page', 'ვარჯიშების გეგმა')" class="main-button bg-sky-600 hover:bg-sky-700 text-white font-bold py-8 px-4 rounded-xl text-2xl shadow-lg">
                     ვარჯიშები
                 </button>
-                <button onclick="showPage('nutrition-page', 'კვების გეგმა')" class="main-button bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-8 px-4 rounded-xl text-2xl shadow-lg">
+                <button onclick="showPage('nutrition-page', 'კვების კონსტრუქტორი')" class="main-button bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-8 px-4 rounded-xl text-2xl shadow-lg">
                     კვების გეგმა
                 </button>
             </div>
@@ -115,72 +141,111 @@
         <div id="nutrition-page" class="page-section">
             <div class="space-y-8 text-gray-300">
                 <div class="bg-gray-700 rounded-xl p-6">
-                    <h2 class="text-2xl font-bold border-b-2 border-yellow-500 pb-2 mb-4">ვარჯიშის დღის გეგმა (3 კვება)</h2>
-                    <div class="space-y-6">
-                        <div>
-                            <h3 class="text-xl font-semibold text-emerald-400">კვება #1: პირველი სადილი (12:00 - 13:00)</h3>
-                            <p class="text-sm text-gray-400 mb-2">მიზანი: დღის დაწყება სრულფასოვანი, მძლავრი კვებით.</p>
-                            <ul class="list-disc list-inside space-y-1">
-                                <li><span class="font-semibold">ვარიანტი 1:</span> მოხარშული ქათმის ფილე (150-200 გრ) + დიდი პორცია ბოსტნეულის სალათი + წიწიბურა.</li>
-                                <li><span class="font-semibold">ვარიანტი 2:</span> მოხარშული თევზი (200 გრ) + ყავისფერი ბრინჯი + მოთუშული ბოსტნეული.</li>
-                                <li><span class="font-semibold">ვარიანტი 3:</span> 3-4 კვერცხის ომლეტი ბოსტნეულით და 1 ნაჭერი პური.</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-emerald-400">კვება #2: ვარჯიშის წინა საწვავი (18:00 - 18:30)</h3>
-                            <p class="text-sm text-gray-400 mb-2">მიზანი: ვარჯიშისთვის საჭირო სწრაფი ენერგიის მიღება.</p>
-                            <ul class="list-disc list-inside space-y-1">
-                                <li><span class="font-semibold">ვარიანტი 1 (იდეალური):</span> 1 საშუალო ზომის ბანანი.</li>
-                                <li><span class="font-semibold">ვარიანტი 2:</span> 1 დიდი მწვანე ვაშლი.</li>
-                            </ul>
-                        </div>
-                         <div>
-                            <h3 class="text-xl font-semibold text-emerald-400">კვება #3: ვახშამი / აღდგენა (21:00 - 21:30)</h3>
-                            <p class="text-sm text-gray-400 mb-2">მიზანი: ვარჯიშის შემდეგ კუნთების მომარაგება ცილით.</p>
-                            <ul class="list-disc list-inside space-y-1">
-                                <li><span class="font-semibold">ვარიანტი 1:</span> უცხიმო ხაჭო (200 გრ) კენკრასთან.</li>
-                                <li><span class="font-semibold">ვარიანტი 2:</span> ბერძნული იოგურტი (1 კოლოფი) + 1 კოვზი ჩიას თესლი.</li>
-                                <li><span class="font-semibold">ვარიანტი 3:</span> ქათმის ფილეს სალათი.</li>
-                                <li><span class="font-semibold">ვარიანტი 4:</span> 2-3 მოხარშული კვერცხი.</li>
-                            </ul>
-                        </div>
+                    <h2 class="text-2xl font-bold border-b-2 border-yellow-500 pb-2 mb-4">შენი კვების კონსტრუქტორი: ააწყე შენი დღე</h2>
+                    <p class="mb-6">ეს არის შენი პირადი მენიუ. აირჩიე თითოეული კატეგორიიდან ერთი ვარიანტი და ააწყვე შენი იდეალური დღე. მთავარია, დაიცვა კვების დროები და პორციების ზომები.</p>
+                    
+                    <!-- ნაწილი 1: ინგრედიენტები -->
+                    <h3 class="text-xl font-semibold text-emerald-400 mb-4">ნაწილი 1: შენი ინგრედიენტები</h3>
+                    
+                    <!-- ცილის წყაროები -->
+                    <h4 class="text-lg font-bold mt-4 mb-2">ცილის წყაროები (აირჩიე ერთი თითო კვებაზე)</h4>
+                    <div class="overflow-x-auto rounded-lg">
+                        <table class="styled-table">
+                            <thead>
+                                <tr>
+                                    <th>პროდუქტი</th>
+                                    <th>პორცია (სადილისთვის)</th>
+                                    <th>პორცია (ვახშმისთვის)</th>
+                                    <th>ცილა (სადილის პორცია)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>ქათმის ფილე</td><td>150 გრ</td><td>100 გრ</td><td>~45 გრ</td></tr>
+                                <tr><td>თევზი (თეთრი)</td><td>200 გრ</td><td>150 გრ</td><td>~40 გრ</td></tr>
+                                <tr><td>ორაგული (Salmon)</td><td>200 გრ</td><td>150 გრ</td><td>~40-42 გრ</td></tr>
+                                <tr><td>ძროხის ხორცი (სუკი)</td><td>120 გრ</td><td>80-100 გრ</td><td>~35-40 გრ</td></tr>
+                                <tr><td>ღორის ხორცი (სუკი)</td><td>120 გრ</td><td>80-100 გრ</td><td>~35 გრ</td></tr>
+                                <tr><td>თინუსი (საკ. წვენში)</td><td>1 ქილა (~100გრ)</td><td>1 ქილა (~100გრ)</td><td>~25 გრ</td></tr>
+                                <tr><td>ოსპი</td><td>200-250 გრ</td><td>200 გრ</td><td>~18-20 გრ</td></tr>
+                                <tr><td>მუხუდო (Chickpeas)</td><td>200-250 გრ</td><td>200 გრ</td><td>~18-20 გრ</td></tr>
+                                <tr><td>კვერცხი</td><td>3-4 ცალი</td><td>3 ცალი</td><td>~20-25 გრ</td></tr>
+                            </tbody>
+                        </table>
                     </div>
+
+                    <!-- სამხარის იდეები -->
+                     <h4 class="text-lg font-bold mt-6 mb-2">სამხარის იდეები (აირჩიე ერთი)</h4>
+                     <div class="overflow-x-auto rounded-lg">
+                        <table class="styled-table">
+                             <thead>
+                                <tr>
+                                    <th>პროდუქტი</th>
+                                    <th>პორცია</th>
+                                    <th>დაახლოებით ცილა</th>
+                                </tr>
+                            </thead>
+                             <tbody>
+                                <tr><td>ხაჭო (უცხიმო)</td><td>150 გრ</td><td>~18-20 გრ</td></tr>
+                                <tr><td>ბერძნული იოგურტი</td><td>200 გრ</td><td>~20-22 გრ</td></tr>
+                                <tr><td>კვერცხი</td><td>2 ცალი</td><td>~12-14 გრ</td></tr>
+                                <tr><td>თინუსის სალათი</td><td>1/2 ქილა (~50გრ)</td><td>~12-15 გრ</td></tr>
+                                <tr><td>ქათმის/ინდაურის რულეტი</td><td>50-60 გრ ფილე</td><td>~15-18 გრ</td></tr>
+                                <tr><td>შემწვარი მუხუდო</td><td>100-150 გრ (მოხარშული)</td><td>~8-12 გრ</td></tr>
+                                <tr><td>პროტეინის შეიკი</td><td>1 ულუფა (scoop)</td><td>~20-25 გრ</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- ნახშირწყლების წყაროები -->
+                    <h4 class="text-lg font-bold mt-6 mb-2">ნახშირწყლების წყაროები (აირჩიე ერთი სადილისთვის)</h4>
+                    <div class="overflow-x-auto rounded-lg">
+                        <table class="styled-table">
+                            <thead>
+                                <tr><th>პროდუქტი</th><th>პორცია (მომზადებული სახით)</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>თეთრი ბრინჯი</td><td>150-200 გრ</td></tr>
+                                <tr><td>მაკარონი (მყარი ხორბლის)</td><td>150-200 გრ</td></tr>
+                                <tr><td>კარტოფილი (გამომცხვარი/მოხარშული)</td><td>200-250 გრ</td></tr>
+                                <tr><td>ბატატი (ტკბილი კარტოფილი)</td><td>200-250 გრ</td></tr>
+                                <tr><td>წიწიბურა</td><td>150-200 გრ</td></tr>
+                                <tr><td>კუსკუსი (Couscous)</td><td>150-200 გრ</td></tr>
+                                <tr><td>ბულგური (Bulgur)</td><td>150-200 გრ</td></tr>
+                                <tr><td>შვრია (Oats)</td><td>150-200 გრ</td></tr>
+                                <tr><td>მთლიანი მარცვლეულის პური</td><td>2 ნაჭერი</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- ხილი და ბოსტნეული -->
+                    <h4 class="text-lg font-bold mt-6 mb-2">ვარჯიშის წინა საწვავი (ხილი)</h4>
+                    <ul class="list-disc list-inside"><li>1 საშუალო ბანანი</li><li>1 დიდი ვაშლი</li></ul>
+                    <h4 class="text-lg font-bold mt-4 mb-2">ბოსტნეული</h4>
+                    <p>მიირთვი შეუზღუდავად! რაც მეტი, მით უკეთესი. (კიტრი, პომიდორი, სალათის ფურცლები, ბროკოლი, ისპანახი, წიწაკა და ა.შ.)</p>
                 </div>
 
+                <!-- ნაწილი 2: დღის შაბლონი -->
                 <div class="bg-gray-700 rounded-xl p-6">
-                    <h2 class="text-2xl font-bold border-b-2 border-yellow-500 pb-2 mb-4">დასვენების დღის გეგმა (3 კვება)</h2>
-                    <div class="space-y-6">
+                    <h3 class="text-xl font-semibold text-emerald-400 mb-4">ნაწილი 2: შენი დღის შაბლონი</h3>
+                     <div class="space-y-6">
                         <div>
-                            <h3 class="text-xl font-semibold text-emerald-400">კვება #1: სადილი (12:00 - 13:00)</h3>
-                            <p class="text-sm text-gray-400 mb-2">იგივე, რაც ვარჯიშის დღეს. სრულფასოვანი, დაბალანსებული კვება.</p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-emerald-400">კვება #2: სამხარი (16:00 - 17:00)</h3>
-                            <p class="text-sm text-gray-400 mb-2">მიზანი: ენერგიის შენარჩუნება და შიმშილის კონტროლი.</p>
-                            <ul class="list-disc list-inside space-y-1">
-                                <li><span class="font-semibold">ვარიანტი 1:</span> ბერძნული იოგურტი (1 კოლოფი).</li>
-                                <li><span class="font-semibold">ვარიანტი 2:</span> 150 გრ ხაჭო.</li>
-                                <li><span class="font-semibold">ვარიანტი 3:</span> ბოსტნეულის სალათი 1 მოხარშული კვერცხით.</li>
+                            <h4 class="text-lg font-bold text-yellow-300">ვარჯიშის დღის შაბლონი (4 კვება)</h4>
+                            <ul class="list-decimal list-inside mt-2 space-y-2">
+                                <li><b>სადილი (12:00 - 13:00):</b> 1 ცილის პორცია (სადილისთვის) + 1 ნახშირწყლის პორცია + ბევრი ბოსტნეული.</li>
+                                <li><b>სამხარი (16:00 - 16:30):</b> 1 სამხარის იდეა.</li>
+                                <li><b>ვარჯიშის წინა საწვავი (18:00 - 18:30):</b> 1 ხილი.</li>
+                                <li><b>ვახშამი / აღდგენა (21:00 - 21:30):</b> 1 ცილის პორცია (ვახშმისთვის) + ბევრი ბოსტნეული.</li>
                             </ul>
                         </div>
-                         <div>
-                            <h3 class="text-xl font-semibold text-emerald-400">კვება #3: ვახშამი (19:00 - 20:00)</h3>
-                            <p class="text-sm text-gray-400 mb-2">მიზანი: მსუბუქი, ცილით მდიდარი კვება.</p>
-                             <ul class="list-disc list-inside space-y-1">
-                                <li><span class="font-semibold">ვარიანტი 1:</span> თევზი (150 გრ) + ბოსტნეულის სალათი.</li>
-                                <li><span class="font-semibold">ვარიანტი 2:</span> ოსპის სუპი + სალათი.</li>
-                                <li><span class="font-semibold">ვარიანტი 3:</span> 2-3 კვერცხის ომლეტი ბოსტნეულით.</li>
+                        <div>
+                            <h4 class="text-lg font-bold text-yellow-300">დასვენების დღის შაბლონი (3 კვება)</h4>
+                             <ul class="list-decimal list-inside mt-2 space-y-2">
+                                <li><b>სადილი (12:00 - 13:00):</b> 1 ცილის პორცია (სადილისთვის) + 1 ნახშირწყლის პორცია + ბევრი ბოსტნეული.</li>
+                                <li><b>სამხარი (16:00 - 17:00):</b> 1 სამხარის იდეა.</li>
+                                <li><b>ვახშამი (19:00 - 20:00):</b> 1 ცილის პორცია (ვახშმისთვის) + ბევრი ბოსტნეული.</li>
                             </ul>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-700 rounded-xl p-6">
-                     <h2 class="text-2xl font-bold border-b-2 border-yellow-500 pb-2 mb-4">მნიშვნელოვანია</h2>
-                     <ul class="list-disc list-inside space-y-2">
-                        <li><b>წყალი:</b> არ დაივიწყო წყლის მიღება. დალიე მინიმუმ 2 ლიტრი წყალი დღის განმავლობაში.</li>
-                        <li><b>მოქნილობა:</b> ეს გეგმა არის შაბლონი. შენ შეგიძლია ვარიანტები ცვალო შენი სურვილის მიხედვით.</li>
-                     </ul>
+                     </div>
                 </div>
             </div>
         </div>
@@ -297,13 +362,13 @@
         
         function goBack() {
             if (pageHistory.length > 1) {
-                pageHistory.pop();
+                const currentPageId = pageHistory.pop();
                 const lastPageId = pageHistory[pageHistory.length - 1];
                 let title = 'აირჩიე სექცია'; // Default title
                 const lastPageButton = document.querySelector(`button[onclick*="'${lastPageId}'"]`);
                  if (lastPageButton) {
                     const titleSpan = lastPageButton.querySelector('span');
-                    title = `${lastPageButton.childNodes[0].nodeValue}: ${titleSpan.textContent}`;
+                    title = titleSpan ? `${lastPageButton.childNodes[0].nodeValue}: ${titleSpan.textContent}` : lastPageButton.textContent;
                  }
                  showPage(lastPageId, title);
             }
@@ -467,7 +532,7 @@
                                 { id: 'w1a3', name: 'Seated Cable Row (ჰორიზონტალური ბლოკის მოზიდვა)', details: '3x10 | 60წმ', rest: 60, video: 'qD1WZ5pSuvk' },
                                 { id: 'w1a4', name: 'Seated Dumbbell Shoulder Press (მხრებით აჭიმვა)', details: '3x12 | 60წმ', rest: 60, video: '6v4nrRVySj0' },
                                 { id: 'w1a5', name: 'Dumbbell Bicep Curl (ბიცეფსი)', details: '2x12 | 45წმ', rest: 45, video: 'MKWBV29S6c0' },
-                                { id: 'w1a6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x12 | 45წმ', rest: 45, video: 'rGI88vZdArg' }
+                                { id: 'w1a6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x12 | 45წმ', rest: 45, video: '1FjkhpZsaxc' }
                             ],
                             cooldown: '15 წუთი - Treadmill (სარბენი ბილიკი), სწრაფი სიარული (5.5-6.5 კმ/სთ), აღმართის გარეშე.'
                         },
@@ -478,7 +543,7 @@
                                 { id: 'w1b2', name: 'Lying Leg Curl (ფეხის მოხრა ტრენაჟორზე)', details: '3x12 | 60წმ', rest: 60, video: 'FMCq0hT3KRU' },
                                 { id: 'w1b3', name: 'Bodyweight Lunges (გამოხტომები)', details: '3x10 (თითო) | 60წმ', rest: 60, video: '1mHlkUC5rGY' },
                                 { id: 'w1b4', name: 'Calf Raises (წვივებზე აწევა)', details: '3x15 | 45წმ', rest: 45, video: '95itLfMBG40' },
-                                { id: 'w1b5', name: 'Plank (პლანკა)', details: '3x30-45წმ | 60წმ', rest: 60, video: 'v25dawSzRTM' },
+                                { id: 'w1b5', name: 'Plank (პლანკა)', details: '3x30-45წმ | 60წმ', rest: 60, video: 'xe2MXatLTUw' },
                                 { id: 'w1b6', name: 'Leg Raises (ფეხების აწევა)', details: '3x15 | 60წმ', rest: 60, video: 'd3d2yz7V26c' }
                             ],
                              cooldown: '15 წუთი - Elliptical Trainer (ელიპტიკური), საშუალო წინააღმდეგობა.'
@@ -491,7 +556,7 @@
                                 { id: 'w1c3', name: 'Seated Cable Row (ჰორიზონტალური ბლოკის მოზიდვა)', details: '3x10 | 60წმ', rest: 60, video: 'qD1WZ5pSuvk' },
                                 { id: 'w1c4', name: 'Seated Dumbbell Shoulder Press (მხრებით აჭიმვა)', details: '3x12 | 60წმ', rest: 60, video: '6v4nrRVySj0' },
                                 { id: 'w1c5', name: 'Dumbbell Bicep Curl (ბიცეფსი)', details: '2x12 | 45წმ', rest: 45, video: 'MKWBV29S6c0' },
-                                { id: 'w1c6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x12 | 45წმ', rest: 45, video: 'rGI88vZdArg' }
+                                { id: 'w1c6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x12 | 45წმ', rest: 45, video: '1FjkhpZsaxc' }
                             ],
                              cooldown: '15 წუთი - Stationary Bike (ველოტრენაჟორი), სტაბილური, საშუალო ტემპი.'
                         }
@@ -508,7 +573,7 @@
                                 { id: 'w2a2', name: 'Lying Leg Curl (ფეხის მოხრა ტრენაჟორზე)', details: '3x15 | 60წმ', rest: 60, video: 'FMCq0hT3KRU' },
                                 { id: 'w2a3', name: 'Bodyweight Lunges (გამოხტომები)', details: '3x12 (თითო) | 60წმ', rest: 60, video: '1mHlkUC5rGY' },
                                 { id: 'w2a4', name: 'Calf Raises (წვივებზე აწევა)', details: '3x20 | 45წმ', rest: 45, video: '95itLfMBG40' },
-                                { id: 'w2a5', name: 'Plank (პლანკა)', details: '3x45-60წმ | 60წმ', rest: 60, video: 'v25dawSzRTM' },
+                                { id: 'w2a5', name: 'Plank (პლანკა)', details: '3x45-60წმ | 60წმ', rest: 60, video: 'xe2MXatLTUw' },
                                 { id: 'w2a6', name: 'Leg Raises (ფეხების აწევა)', details: '3x20 | 60წმ', rest: 60, video: 'd3d2yz7V26c' }
                             ],
                             cooldown: '20 წუთი - Treadmill. 5წთ სწრაფი სიარული (6.0), 10წთ მცირე აღმართი (2-3%), 5წთ სწორი ზედაპირი.'
@@ -521,7 +586,7 @@
                                 { id: 'w2b3', name: 'Seated Cable Row (ჰორიზონტალური ბლოკის მოზიდვა)', details: '3x12 | 60წმ', rest: 60, video: 'qD1WZ5pSuvk' },
                                 { id: 'w2b4', name: 'Seated Dumbbell Shoulder Press (მხრებით აჭიმვა)', details: '3x15 | 60წმ', rest: 60, video: '6v4nrRVySj0' },
                                 { id: 'w2b5', name: 'Dumbbell Bicep Curl (ბიცეფსი)', details: '2x15 | 45წმ', rest: 45, video: 'MKWBV29S6c0' },
-                                { id: 'w2b6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x15 | 45წმ', rest: 45, video: 'rGI88vZdArg' }
+                                { id: 'w2b6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x15 | 45წმ', rest: 45, video: '1FjkhpZsaxc' }
                             ],
                              cooldown: '20 წუთი - Elliptical Trainer, ოდნავ გაზრდილი წინააღმდეგობით.'
                         },
@@ -532,7 +597,7 @@
                                 { id: 'w2c2', name: 'Lying Leg Curl (ფეხის მოხრა ტრენაჟორზე)', details: '3x15 | 60წმ', rest: 60, video: 'FMCq0hT3KRU' },
                                 { id: 'w2c3', name: 'Bodyweight Lunges (გამოხტომები)', details: '3x12 (თითო) | 60წმ', rest: 60, video: '1mHlkUC5rGY' },
                                 { id: 'w2c4', name: 'Calf Raises (წვივებზე აწევა)', details: '3x20 | 45წმ', rest: 45, video: '95itLfMBG40' },
-                                { id: 'w2c5', name: 'Plank (პლანკა)', details: '3x45-60წმ | 60წმ', rest: 60, video: 'v25dawSzRTM' },
+                                { id: 'w2c5', name: 'Plank (პლანკა)', details: '3x45-60წმ | 60წმ', rest: 60, video: 'xe2MXatLTUw' },
                                 { id: 'w2c6', name: 'Leg Raises (ფეხების აწევა)', details: '3x20 | 60წმ', rest: 60, video: 'd3d2yz7V26c' }
                             ],
                              cooldown: '20 წუთი - Stationary Bike. 2წთ საშუალო ტემპი, 1წთ აჩქარებული. გაიმეორე 6-ჯერ.'
@@ -551,7 +616,7 @@
                                 { id: 'w3a3', name: 'Seated Cable Row (ჰორიზონტალური ბლოკის მოზიდვა)', details: '3x8-10 | 60წმ', rest: 60, video: 'qD1WZ5pSuvk' },
                                 { id: 'w3a4', name: 'Seated Dumbbell Shoulder Press (მხრებით აჭიმვა)', details: '3x10-12 | 60წმ', rest: 60, video: '6v4nrRVySj0' },
                                 { id: 'w3a5', name: 'Dumbbell Bicep Curl (ბიცეფსი)', details: '2x10-12 | 45წმ', rest: 45, video: 'MKWBV29S6c0' },
-                                { id: 'w3a6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x10-12 | 45წმ', rest: 45, video: 'rGI88vZdArg' }
+                                { id: 'w3a6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x10-12 | 45წმ', rest: 45, video: '1FjkhpZsaxc' }
                             ],
                             cooldown: '20 წუთი - Elliptical Trainer, ოდნავ გაზრდილი წინააღმდეგობით.'
                         },
@@ -562,7 +627,7 @@
                                 { id: 'w3b2', name: 'Lying Leg Curl (ფეხის მოხრა ტრენაჟორზე)', details: '3x10-12 | 60წმ', rest: 60, video: 'FMCq0hT3KRU' },
                                 { id: 'w3b3', name: 'Dumbbell Lunges (გამოხტომები განტელებით)', details: '3x8-10 (თითო) | 60წმ', rest: 60, video: '1mHlkUC5rGY' },
                                 { id: 'w3b4', name: 'Calf Raises (წვივებზე აწევა)', details: '3x15-20 | 45წმ', rest: 45, video: '95itLfMBG40' },
-                                { id: 'w3b5', name: 'Plank (პლანკა)', details: '3xMax დრო | 60წმ', rest: 60, video: 'v25dawSzRTM' },
+                                { id: 'w3b5', name: 'Plank (პლანკა)', details: '3xMax დრო | 60წმ', rest: 60, video: 'xe2MXatLTUw' },
                                 { id: 'w3b6', name: 'Leg Raises (ფეხების აწევა)', details: '3xMax გამეორება | 60წმ', rest: 60, video: 'd3d2yz7V26c' }
                             ],
                              cooldown: '20 წუთი - Treadmill. 5წთ სწრაფი სიარული (6.0), 10წთ მცირე აღმართი, 5წთ სწორი ზედაპირი.'
@@ -575,7 +640,7 @@
                                 { id: 'w3c3', name: 'Seated Cable Row (ჰორიზონტალური ბლოკის მოზიდვა)', details: '3x8-10 | 60წმ', rest: 60, video: 'qD1WZ5pSuvk' },
                                 { id: 'w3c4', name: 'Seated Dumbbell Shoulder Press (მხრებით აჭიმვა)', details: '3x10-12 | 60წმ', rest: 60, video: '6v4nrRVySj0' },
                                 { id: 'w3c5', name: 'Dumbbell Bicep Curl (ბიცეფსი)', details: '2x10-12 | 45წმ', rest: 45, video: 'MKWBV29S6c0' },
-                                { id: 'w3c6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x10-12 | 45წმ', rest: 45, video: 'rGI88vZdArg' }
+                                { id: 'w3c6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x10-12 | 45წმ', rest: 45, video: '1FjkhpZsaxc' }
                             ],
                              cooldown: '20 წუთი - Stationary Bike. 2წთ საშუალო ტემპი, 1წთ აჩქარებული. გაიმეორე 6-ჯერ.'
                         }
@@ -592,7 +657,7 @@
                                 { id: 'w4a2', name: 'Lying Leg Curl (ფეხის მოხრა ტრენაჟორზე)', details: '3x12-15 | 60წმ', rest: 60, video: 'FMCq0hT3KRU' },
                                 { id: 'w4a3', name: 'Dumbbell Lunges (გამოხტომები განტელებით)', details: '3x10-12 (თითო) | 60წმ', rest: 60, video: '1mHlkUC5rGY' },
                                 { id: 'w4a4', name: 'Calf Raises (წვივებზე აწევა)', details: '3xMax გამეორება | 45წმ', rest: 45, video: '95itLfMBG40' },
-                                { id: 'w4a5', name: 'Plank (პლანკა)', details: '3xMax დრო | 60წმ', rest: 60, video: 'v25dawSzRTM' },
+                                { id: 'w4a5', name: 'Plank (პლანკა)', details: '3xMax დრო | 60წმ', rest: 60, video: 'xe2MXatLTUw' },
                                 { id: 'w4a6', name: 'Leg Raises (ფეხების აწევა)', details: '3xMax გამეორება | 60წმ', rest: 60, video: 'd3d2yz7V26c' }
                             ],
                             cooldown: '25 წუთი - Treadmill. 5წთ სწრაფი სიარული, 15წთ მცირე აღმართი (2-4%), 5წთ სწორი ზედაპირი.'
@@ -605,7 +670,7 @@
                                 { id: 'w4b3', name: 'Seated Cable Row (ჰორიზონტალური ბლოკის მოზიდვა)', details: '3x10-12 | 60წმ', rest: 60, video: 'qD1WZ5pSuvk' },
                                 { id: 'w4b4', name: 'Seated Dumbbell Shoulder Press (მხრებით აჭიმვა)', details: '3x12-15 | 60წმ', rest: 60, video: '6v4nrRVySj0' },
                                 { id: 'w4b5', name: 'Dumbbell Bicep Curl (ბიცეფსი)', details: '2x12-15 | 45წმ', rest: 45, video: 'MKWBV29S6c0' },
-                                { id: 'w4b6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x12-15 | 45წმ', rest: 45, video: 'rGI88vZdArg' }
+                                { id: 'w4b6', name: 'Tricep Pushdown (ტრიცეფსი)', details: '2x12-15 | 45წმ', rest: 45, video: '1FjkhpZsaxc' }
                             ],
                              cooldown: '25 წუთი - Elliptical Trainer, გაზარდე წინააღმდეგობა ისე, რომ ბოლო 5 წუთი გამოწვევა იყოს.'
                         },
@@ -616,7 +681,7 @@
                                 { id: 'w4c2', name: 'Lying Leg Curl (ფეხის მოხრა ტრენაჟორზე)', details: '3x12-15 | 60წმ', rest: 60, video: 'FMCq0hT3KRU' },
                                 { id: 'w4c3', name: 'Dumbbell Lunges (გამოხტომები განტელებით)', details: '3x10-12 (თითო) | 60წმ', rest: 60, video: '1mHlkUC5rGY' },
                                 { id: 'w4c4', name: 'Calf Raises (წვივებზე აწევა)', details: '3xMax გამეორება | 45წმ', rest: 45, video: '95itLfMBG40' },
-                                { id: 'w4c5', name: 'Plank (პლანკა)', details: '3xMax დრო | 60წმ', rest: 60, video: 'v25dawSzRTM' },
+                                { id: 'w4c5', name: 'Plank (პლანკა)', details: '3xMax დრო | 60წმ', rest: 60, video: 'xe2MXatLTUw' },
                                 { id: 'w4c6', name: 'Leg Raises (ფეხების აწევა)', details: '3xMax გამეორება | 60წმ', rest: 60, video: 'd3d2yz7V26c' }
                             ],
                              cooldown: '25 წუთი - Stationary Bike. 2წთ საშუალო ტემპი, 1წთ აჩქარებული. გაიმეორე 8-ჯერ.'
